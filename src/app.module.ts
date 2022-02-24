@@ -1,10 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { PhotosModule } from './photos/photos.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import '../env';
+let typeOrmConfig = {};
+
+typeOrmConfig = require('./config/typeorm.config');
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    PhotosModule,
+    TypeOrmModule.forRoot(typeOrmConfig),
+    ConfigModule.forRoot({
+      envFilePath: '../.env',
+    }),
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
