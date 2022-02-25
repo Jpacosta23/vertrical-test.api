@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Logger,
+  Param,
   Patch,
   Post,
   Query,
@@ -17,6 +18,16 @@ export class PhotosController {
   @Get()
   getPhotos() {
     return this.photosService.getAllPhotos();
+  }
+
+  @Get(':id')
+  getPhotoById(@Param('id') id: number) {
+    return this.photosService.getPhotoById(id);
+  }
+
+  @Post()
+  getPhotosByTitle(@Body() title: any) {
+    return this.photosService.getPhotosByTitle(title);
   }
 
   @Post()

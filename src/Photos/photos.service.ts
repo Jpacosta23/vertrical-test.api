@@ -15,6 +15,14 @@ export class PhotosService {
     return this.photosRepository.find();
   }
 
+  async getPhotoById(id: number): Promise<Photo> {
+    return this.photosRepository.findOne(id);
+  }
+
+  async getPhotosByTitle(title: any): Promise<Photo[]> {
+    return this.photosRepository.getPhotosByTitle(title);
+  }
+
   async createPhoto(photosDto: PhotosDto): Promise<Photo> {
     return await this.photosRepository.save(photosDto);
   }
