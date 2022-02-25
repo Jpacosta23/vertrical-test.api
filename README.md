@@ -25,6 +25,8 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+mockData_DB.js file contains mock data that is supposed to come from the Data base.
+to insert the data into a new data base should use Postman or similar and make a post type method to the http://localhost:3001/photo endpoint and for body put 1 title of the list.
 
 ## Installation
 
